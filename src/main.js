@@ -5,6 +5,9 @@ import store from './store';
 import 'lib-flexible/flexible.js'
 import  '@/plugin/directive'
 
+import axios from 'axios'
+Vue.prototype.$http = axios
+
 
 // import ElementUI from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
@@ -29,6 +32,12 @@ Vue.use(Vant);
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
+
+// picker
+import picker from 'vt-picker'
+console.log(picker)
+ 
+// Vue.component('Picker', Picker)
 
 
 // 加载全局组件
