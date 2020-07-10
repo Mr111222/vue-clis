@@ -4,6 +4,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin') // 去掉注释
 const CompressionWebpackPlugin = require('compression-webpack-plugin'); // 开启压缩
 const { HashedModuleIdsPlugin } = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin');
+
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -83,9 +85,18 @@ module.exports = {
        
     },
     configureWebpack: config => {
+        config.plugins.push(new SkeletonWebpackPlugin({
+          webpackConfig: {
+            entry: {
+              app: path.join(__dirname, './src/common/entry-skeleton.js'),
+            },
+          },
+          minimize: true,
+          quiet: true,
+        }))
         const plugins = [];
-
         if (isProduction) {
+          console.log('production')
             plugins.push(
                     new UglifyJsPlugin({
                         uglifyOptions: {
@@ -158,7 +169,6 @@ module.exports = {
             // 打包时npm包转CDN
             config.externals = externals;
         }
-
         return { plugins }
     },
 
@@ -171,6 +181,9 @@ module.exports = {
     },
     css: {
         loaderOptions: {
+            sass: {
+              prependData: `@import "./src/style/theme.scss"`
+            },
             postcss: {
                 plugins: [
                     require('postcss-pxtorem')({

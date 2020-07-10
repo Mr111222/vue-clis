@@ -1,7 +1,3 @@
-# 一份完整的vue-cli3项目基础配置项
-# 参考 https://github.com/hangjob/vue-admin.git
-
-
 ## 安装依赖
 ```
 cnpm install
@@ -44,6 +40,8 @@ npm run build
 14. 拷贝文件
 15. 添加可选链运算符
 16. 配置px转换rem
+17. 增加骨架屏预览
+18. 配置scss语法
 
 ### 附加功能
 1. vue如何刷新当前页面
