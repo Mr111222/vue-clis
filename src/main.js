@@ -4,11 +4,10 @@ import router from './router';
 import store from './store';
 import 'lib-flexible/flexible.js'
 import  '@/plugin/directive'
-
+import GLOBAL from './global.vue'
 import axios from 'axios'
 Vue.prototype.$http = axios
-
-
+Vue.prototype.G = GLOBAL
 // import ElementUI from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
 // Vue.use(ElementUI);
@@ -35,7 +34,7 @@ Vue.use(VueAwesomeSwiper)
 
 // picker
 import picker from 'vt-picker'
-console.log(picker)
+
  
 // Vue.component('Picker', Picker)
 

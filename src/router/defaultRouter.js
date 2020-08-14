@@ -4,6 +4,7 @@ const about = r => require.ensure([], () => r(require('@/view/about/about.vue'))
 const detail = r => require.ensure([], () => r(require('@/view/detail/detail.vue')), 'detail')
 const error = r => require.ensure([], () => r(require('@/view/404/404.vue')), 'error');
 const wiper = r => require.ensure([], () => r(require('@/view/swiper/index.vue')), 'swiper');
+const queue = r => require.ensure([], () => r(require('@/view/queue/index.vue')), 'queue');
 const defaultRouter = [
     {
         path: "/", 
@@ -43,7 +44,15 @@ const defaultRouter = [
                 meta: {
                     title: 'wiper'
                 }
-            }
+            },
+            {
+                path: '/queue',
+                component: queue,
+                name: 'queue',
+                meta: {
+                    title: 'queue'
+                }
+            },
         ]
     },
     {
